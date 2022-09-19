@@ -40,10 +40,9 @@ public class TestDemoQa {
         $(".react-datepicker__year-select").click();
         // выбор дня
         $("[class*='react-datepicker__day--012']").click();
-
-
-
-
+        //Subjects
+        $("#subjectsInput").setValue("Math").pressTab().setValue("Biology").pressTab();
+        $("#hobbies-checkbox-1").parent().click();
 
 
     }
