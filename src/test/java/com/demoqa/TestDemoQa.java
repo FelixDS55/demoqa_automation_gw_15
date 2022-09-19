@@ -39,7 +39,7 @@ public class TestDemoQa {
         $(".react-datepicker__year-select").selectOption("1985");
         $(".react-datepicker__year-select").click();
         // выбор дня
-        $(".react-datepicker__day react-datepicker__day--003 react-datepicker__day--weekend").selectOption("3");
+        $("[class*='react-datepicker__day--012']").click();
 
 
 
