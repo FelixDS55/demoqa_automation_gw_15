@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -19,14 +20,14 @@ public class TestDemoQa {
 
     @Test
     void formTest(){
-        String firstName = "Mike";
-        String lastName = "Mercury";
+        String name = "Mike";
+        String surname = "Mercury";
         String email = "mike@google.com";
         String mobile = "9500520335";
 
         open("/automation-practice-form");
-        $("#firstName").setValue(firstName);
-        $("#lastName").setValue(lastName);
+        $("#firstName").setValue(name);
+        $("#lastName").setValue(surname);
         $("#userEmail").setValue(email);
         $("#gender-radio-1").doubleClick();
         $("#userNumber").setValue(mobile);
@@ -42,7 +43,7 @@ public class TestDemoQa {
         // выбор дня
         $("[class*='react-datepicker__day--012']").click();
         //Subjects
-        $("#subjectsInput").setValue("Math").pressTab().setValue("Biology").pressTab();
+        $("#subjectsInput").setValue("Math").pressTab();
         $("#hobbies-checkbox-1").parent().click();
         $("[class*='form-control-file']").uploadFromClasspath("pic.jpg");
         $("#currentAddress").setValue("Piter");
@@ -51,8 +52,16 @@ public class TestDemoQa {
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
+//        $("#closeLargeModal").click();
 
-
-
+        $(".table-responsive").shouldHave(text(name));
+        $(".table-responsive").shouldHave(text(surname));
+        $(".table-responsive").shouldHave(text(email));
+        $(".table-responsive").shouldHave(text(mobile));
+        $(".table-responsive").shouldHave(text("12 January,1985"));
+        $(".table-responsive").shouldHave(text("Math"));
+        $(".table-responsive").shouldHave(text("Sports"));
+        $(".table-responsive").shouldHave(text("Piter"));
+        $(".table-responsive").shouldHave(text("NCR Delhi"));
     }
 }
