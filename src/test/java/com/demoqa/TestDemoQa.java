@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class TestDemoQa {
@@ -21,7 +22,7 @@ public class TestDemoQa {
         String firstName = "Mike";
         String lastName = "Mercury";
         String email = "mike@google.com";
-        String mobile = "+79000000001";
+        String mobile = "9500520335";
 
         open("/automation-practice-form");
         $("#firstName").setValue(firstName);
@@ -43,6 +44,14 @@ public class TestDemoQa {
         //Subjects
         $("#subjectsInput").setValue("Math").pressTab().setValue("Biology").pressTab();
         $("#hobbies-checkbox-1").parent().click();
+        $("[class*='form-control-file']").uploadFromClasspath("pic.jpg");
+        $("#currentAddress").setValue("Piter");
+        $("#state").click();
+        $("#stateCity-wrapper").$(byText("NCR")).click();
+        $("#city").click();
+        $("#stateCity-wrapper").$(byText("Delhi")).click();
+        $("#submit").click();
+
 
 
     }
