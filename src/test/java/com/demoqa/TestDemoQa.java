@@ -52,7 +52,7 @@ public class TestDemoQa {
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
-//        $("#closeLargeModal").click();
+
 
         $(".table-responsive").shouldHave(text(name));
         $(".table-responsive").shouldHave(text(surname));
@@ -63,5 +63,8 @@ public class TestDemoQa {
         $(".table-responsive").shouldHave(text("Sports"));
         $(".table-responsive").shouldHave(text("Piter"));
         $(".table-responsive").shouldHave(text("NCR Delhi"));
+
+        $("#closeLargeModal").click();
     }
+
 }
