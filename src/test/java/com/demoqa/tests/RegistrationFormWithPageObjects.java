@@ -45,4 +45,6 @@ public class RegistrationFormWithPageObjects {
         $("#closeLargeModal").click();
     }
 
+
+
 }
