@@ -30,11 +30,10 @@ public class RegistrationFormWithPageObjects {
                 .setNumber("9500520335")
                 .setDate("30", "July", "2008")
                 .setSubject("Math")
-                .setHobbie()
-                .setFile()
+                .setHobbie("Sports")
+                .setFile("pic.jpg")
                 .setAddress("Piter")
-                .setState()
-                .setCity();
+                .setStateCity("NCR", "Delhi");
 
         $("#submit").click();
 
