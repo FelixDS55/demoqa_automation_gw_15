@@ -28,19 +28,26 @@ public class RegistrationFormWithPageObjects {
                 .setEmail("mike@google.com")
                 .setGender("Other")
                 .setNumber("9500520335")
-                .setDate("30", "July", "2008");
+                .setDate("30", "July", "2008")
+                .setSubject("Math")
+                .setHobbie()
+                .setFile()
+                .setAddress("Piter")
+                .setState()
+                .setCity();
 
         $("#submit").click();
 
         registrationFormPage.checkResultTableVisible()
                 .checkResult("Date of Birth", "30 July,2008")
-                .checkResult("Student name", "Mike Mercury")
-                .checkResult("Student Email", "mike@google.com");
-
-
-
-        $(".table-responsive").shouldHave(text("9500520335"));
-
+                .checkResult("Student Name", "Mike Mercury")
+                .checkResult("Student Email", "mike@google.com")
+                .checkResult("Gender", "Other")
+                .checkResult("Subjects", "Maths")
+                .checkResult("Hobbies", "Sports")
+                .checkResult("Picture", "pic.jpg")
+                .checkResult("Address", "Piter")
+                .checkResult("State and City", "NCR Delhi");
 
         $("#closeLargeModal").click();
     }

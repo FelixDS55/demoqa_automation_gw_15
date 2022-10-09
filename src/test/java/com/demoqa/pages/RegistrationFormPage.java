@@ -17,7 +17,11 @@ public class RegistrationFormPage {
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             emailInput = $("#userEmail"),
-            numberInput = $("#userNumber");
+            numberInput = $("#userNumber"),
+            subjectInput = $("#subjectsInput"),
+            hobbieInput = $("#hobbies-checkbox-1"),
+            fileInput = $("[class*='form-control-file']"),
+            addressInput = $("#currentAddress");
 
     private final static String TITLE_TEXT = "Student Registration Form";
     // Actions
@@ -72,6 +76,46 @@ public class RegistrationFormPage {
         calendarComponents.setDate(day, month, year);
 
         return this;
+
+    }
+    public RegistrationFormPage setSubject(String value) {
+        subjectInput.setValue(value).pressTab();
+
+
+        return this;
+
+    }
+    public RegistrationFormPage setHobbie() {
+        hobbieInput.parent().click();
+
+        return this;
+
+    }
+    public RegistrationFormPage setFile() {
+        fileInput.uploadFromClasspath("pic.jpg");
+
+        return this;
+
+    }
+    public RegistrationFormPage setAddress(String value) {
+        addressInput.setValue(value);
+
+        return this;
+
+    }
+    public RegistrationFormPage setState() {
+        $("#state").click();
+        $("#stateCity-wrapper").$(byText("NCR")).click();
+
+        return this;
+
+    }
+    public RegistrationFormPage setCity() {
+        $("#city").click();
+        $("#stateCity-wrapper").$(byText("Delhi")).click();
+
+        return this;
+
     }
     public RegistrationFormPage checkResultTableVisible() {
         modalTableComponent.checkVisible();
