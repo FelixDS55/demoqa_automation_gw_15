@@ -110,6 +110,11 @@ public class RegistrationFormPage {
         return this;
 
     }
+    public RegistrationFormPage setSubmit() {
+        $("#submit").click();
+        return this;
+
+    }
 
     public RegistrationFormPage checkResultTableVisible() {
         modalTableComponent.checkVisible();
@@ -119,6 +124,12 @@ public class RegistrationFormPage {
 
     public RegistrationFormPage checkResult(String key, String value){
         modalTableComponent.checkResult(key, value);
+
+        return this;
+    }
+
+    public RegistrationFormPage closeTable(){
+        $("#closeLargeModal").click();
 
         return this;
     }
