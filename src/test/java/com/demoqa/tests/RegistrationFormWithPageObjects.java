@@ -30,13 +30,13 @@ public class RegistrationFormWithPageObjects {
                 .setNumber("9500520335")
                 .setDate("30", "July", "2008")
                 .setSubject("Math")
-                .setHobbie()
-                .setFile()
+                .setHobbie("Sports")
+                .setFile("pic.jpg")
                 .setAddress("Piter")
-                .setState()
-                .setCity();
+                .setStateCity("NCR", "Delhi")
+                .setSubmit();
 
-        $("#submit").click();
+
 
         registrationFormPage.checkResultTableVisible()
                 .checkResult("Date of Birth", "30 July,2008")
@@ -47,9 +47,10 @@ public class RegistrationFormWithPageObjects {
                 .checkResult("Hobbies", "Sports")
                 .checkResult("Picture", "pic.jpg")
                 .checkResult("Address", "Piter")
-                .checkResult("State and City", "NCR Delhi");
+                .checkResult("State and City", "NCR Delhi")
+                .closeTable();
 
-        $("#closeLargeModal").click();
+
     }
 
 

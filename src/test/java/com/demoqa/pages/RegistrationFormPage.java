@@ -1,6 +1,7 @@
 package com.demoqa.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import com.demoqa.pages.components.AddressComponents;
 import com.demoqa.pages.components.CalendarComponents;
 import com.demoqa.pages.components.ModalTableComponent;
 
@@ -13,14 +14,15 @@ public class RegistrationFormPage {
 
     private CalendarComponents calendarComponents = new CalendarComponents();
     private ModalTableComponent modalTableComponent = new ModalTableComponent();
+    private AddressComponents addressComponents = new AddressComponents();
     private SelenideElement
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             emailInput = $("#userEmail"),
             numberInput = $("#userNumber"),
             subjectInput = $("#subjectsInput"),
-            hobbieInput = $("#hobbies-checkbox-1"),
-            fileInput = $("[class*='form-control-file']"),
+            hobbieInput = $("#hobbiesWrapper"),
+            fileInput = $("#uploadPicture"),
             addressInput = $("#currentAddress");
 
     private final static String TITLE_TEXT = "Student Registration Form";
@@ -85,14 +87,14 @@ public class RegistrationFormPage {
         return this;
 
     }
-    public RegistrationFormPage setHobbie() {
-        hobbieInput.parent().click();
+    public RegistrationFormPage setHobbie(String value) {
+        hobbieInput.$(byText(value)).click();
 
         return this;
 
     }
-    public RegistrationFormPage setFile() {
-        fileInput.uploadFromClasspath("pic.jpg");
+    public RegistrationFormPage setFile(String value) {
+        fileInput.uploadFromClasspath(value);
 
         return this;
 
@@ -103,20 +105,17 @@ public class RegistrationFormPage {
         return this;
 
     }
-    public RegistrationFormPage setState() {
-        $("#state").click();
-        $("#stateCity-wrapper").$(byText("NCR")).click();
-
+    public RegistrationFormPage setStateCity(String state, String city) {
+        addressComponents.setStateCity(state, city);
         return this;
 
     }
-    public RegistrationFormPage setCity() {
-        $("#city").click();
-        $("#stateCity-wrapper").$(byText("Delhi")).click();
-
+    public RegistrationFormPage setSubmit() {
+        $("#submit").click();
         return this;
 
     }
+
     public RegistrationFormPage checkResultTableVisible() {
         modalTableComponent.checkVisible();
 
@@ -125,6 +124,12 @@ public class RegistrationFormPage {
 
     public RegistrationFormPage checkResult(String key, String value){
         modalTableComponent.checkResult(key, value);
+
+        return this;
+    }
+
+    public RegistrationFormPage closeTable(){
+        $("#closeLargeModal").click();
 
         return this;
     }
